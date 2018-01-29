@@ -24,7 +24,7 @@ class DragonRule(MergeRule):
     pronunciation = "dragon"
 
     mapping = {
-        '(lock Dragon | deactivate)':   R(Playback([(["go", "to", "sleep"], 0.0)]), rdescript="Dragon: Go To Sleep"),
+        '(lock Dragon | deactivate  | snore)':   R(Playback([(["go", "to", "sleep"], 0.0)]), rdescript="Dragon: Go To Sleep"),
         '(number|numbers) mode':        R(Playback([(["numbers", "mode", "on"], 0.0)]), rdescript="Dragon: Number Mode"),
         'spell mode':                   R(Playback([(["spell", "mode", "on"], 0.0)]), rdescript="Dragon: Spell Mode"),
         'dictation mode':               R(Playback([(["dictation", "mode", "on"], 0.0)]), rdescript="Dragon: Dictation Mode"),

@@ -80,6 +80,10 @@ class GitBashRule(MergeRule):
         "search recursive count": R(Text("grep -rinH \"PATTERN\" * | wc -l"), rdescript="GREP: Search Recursive Count"),
         "search recursive filetype": R(Text("find . -name \"*.java\" -exec grep -rinH \"PATTERN\" {} \\;"), rdescript="GREP: Search Recursive Filetype"),
         "to file":          R(Text(" > FILENAME"), rdescript="Bash: To File"),
+
+        # Begin My customizations #
+        "getter":           Text( "git " ),
+        # End   My customizations #
         }
     extras = [
               IntegerRefST("n", 1, 10000),
@@ -93,8 +97,9 @@ context = AppContext(executable="\\sh.exe")
 context2 = AppContext(executable="\\bash.exe")
 context3 = AppContext(executable="\\cmd.exe")
 context4 = AppContext(executable="\\mintty.exe")
+context5 = AppContext(executable="\\ConEmu64.exe")
 
-grammar = Grammar("MINGW32", context=(context | context2 | context3 | context4))
+grammar = Grammar("MINGW32", context=(context | context2 | context3 | context4 | context5))
 
 if settings.SETTINGS["apps"]["gitbash"]:
     if settings.SETTINGS["miscellaneous"]["rdp_mode"]:
