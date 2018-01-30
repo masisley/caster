@@ -23,7 +23,7 @@ def normalize_text_format(capitalization, spacing):
     '''
     if capitalization == 0: 
         capitalization = 5
-    if spacing == 0 and capitalization == 3: 
+    if spacing == 0 and capitalization >= 2 and capitalization <= 3: 
         spacing = 1
     return capitalization, spacing
 

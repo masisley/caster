@@ -82,7 +82,15 @@ class GitBashRule(MergeRule):
         "to file":          R(Text(" > FILENAME"), rdescript="Bash: To File"),
 
         # Begin My customizations #
-        "getter":           Text( "git " ),
+        "get":              Text( "git " ),
+        "open project":     R(Text("vsmsbuild sources.proj")+Key("enter"), rdescript="vsmsbuild"),
+        "push force":       R(Text( "git push -f" )+Key("enter"), rdescript="GIT: Force Push"),
+        "build local":      R(Text( "build" )+Key("enter"), rdescript="Build: local"),
+        "build rec":        R(Text( "buildreq" )+Key("enter"), rdescript="Build: remote"),
+        "open portal":      R(Key("cw-p"), rdescript="Conemu: Open Portal"),
+        "open RP":          R(Key("cw-r"), rdescript="Conemu: Open RP"),
+        "open RP user":     R(Key("cw-u"), rdescript="Conemu: Open RP User"),
+        "open Caster":      R(Key("cw-c"), rdescript="Conemu: Open Caster"),
         # End   My customizations #
         }
     extras = [

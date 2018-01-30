@@ -71,6 +71,10 @@ class NavigationNon(MappingRule):
         
         "elite translation <text>":         R(Function(alphanumeric.elite_text), rdescript="1337 Text"),
         
+        # My edits #
+        "(queue this | select this)":       R(Key("right, c-left, cs-right"), rdescript="Select this"),
+        # End my edits #
+
           }
 
     extras   = [
