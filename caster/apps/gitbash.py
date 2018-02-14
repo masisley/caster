@@ -30,7 +30,7 @@ class GitBashRule(MergeRule):
         "initialize repository":       Text( "git init" )+Key("enter"),
         "add":              R(Key("g, i, t, space, a, d, d, space, dot, enter"), rdescript="GIT: Add All"),
         "status":           R(Key( "g, i, t, space, s, t, a, t, u, s, enter" ), rdescript="GIT: Status"),
-        "commit":           R(Key( "g, i, t, space, c, o, m, m, i, t, space, minus, a, m, space, apostrophe, apostrophe, left"), rdescript="GIT: Commit"),
+        "commit":           R(Key( "g, i, t, space, c, o, m, m, i, t, space, minus, a, m, space, quote, quote, left"), rdescript="GIT: Commit"),
         "bug fix commit <n>":    R(Mimic("commit")+Text("fixes #%(n)d ")+Key("backspace"), rdescript="GIT: Bug Fix Commit"),
         "reference commit <n>":  R(Mimic("commit")+Text("refs #%(n)d ")+Key("backspace"), rdescript="GIT: Reference Commit"),
         "checkout":         R(Text( "git checkout " ), rdescript="GIT: Check Out"),
@@ -84,13 +84,25 @@ class GitBashRule(MergeRule):
         # Begin My customizations #
         "get":              Text( "git " ),
         "open project":     R(Text("vsmsbuild sources.proj")+Key("enter"), rdescript="vsmsbuild"),
-        "push force":       R(Text( "git push -f" )+Key("enter"), rdescript="GIT: Force Push"),
-        "build local":      R(Text( "build" )+Key("enter"), rdescript="Build: local"),
+        "force push":       R(Text( "git push -f" )+Key("enter"), rdescript="GIT: Force Push"),
+        "build":      R(Text( "build" )+Key("enter"), rdescript="Build: local"),
         "build rec":        R(Text( "buildreq" )+Key("enter"), rdescript="Build: remote"),
+        "build signed":     R(Text( "buildreq -s" )+Key("enter"), rdescript="Build: remote"),
+        "NPM Start":     R(Text( "npm start" )+Key("enter"), rdescript="NPM: start"),
+
         "open portal":      R(Key("cw-p"), rdescript="Conemu: Open Portal"),
         "open RP":          R(Key("cw-r"), rdescript="Conemu: Open RP"),
         "open RP user":     R(Key("cw-u"), rdescript="Conemu: Open RP User"),
         "open Caster":      R(Key("cw-c"), rdescript="Conemu: Open Caster"),
+        "Next tab":      R(Key("w-tab"), rdescript="Conemu: Next tab"),
+
+        "checkout masisley":         R(Text( "git checkout masisley/" ), rdescript="GIT: Check Out"),
+        "checkout new masisley":         R(Text( "git checkout -b masisley/" ), rdescript="GIT: Check Out"),
+        "(get push | push) Set up stream":R(Text( "git push --set-upstream origin masisley/" ), rdescript="GIT: Push"),
+        "get Rebase Master":              R(Text( "git rebase master" ), rdescript="GIT: Rebase master"),
+        "pull origin master":             R(Text( "git pull origin master" )+Key("enter"), rdescript="GIT: Pull"),
+        
+        "task kill":             R(Text( "taskkill /f /IM " ), rdescript="Taskkill"),
         # End   My customizations #
         }
     extras = [

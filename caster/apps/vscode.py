@@ -31,8 +31,10 @@ class VisualStudioCodeRule(MergeRule):
         "Save and close": R(Key("c-s/10, c-w"), rdescript="Visual Studio Code: Save And Close File"),
        
         # Search
-        "(search | find in) [all] (files | codebase)": R(Key("cs-f"), rdescript="Visual Studio Code: Find in Codebase"),
-        "(search | find) [file]": R(Key("c-f"), rdescript="Visual Studio Code: Find in File"),
+        "(search | find in) [all] (files | codebase) [<text>]": R(Key("cs-f") + Text("%(text)s"), rdescript="Visual Studio Code: Find in Codebase"),
+        "(replace in) [all] (files | codebase) [<text>]": R(Key("cs-h, cs-h") + Text("%(text)s"), rdescript="Visual Studio Code: Replace in Codebase"),
+        "(search | find) [file] [<text>]": R(Key("c-f") + Text("%(text)s"), rdescript="Visual Studio Code: Find in File"),
+        "(replace in) [file]sk [<text>]": R(Key("c-h") + Text("%(text)s"), rdescript="Visual Studio Code: Replace in File"),
         "(Find | Jump [to]) next <text>": R(Function(findNthToken, n=1, direction="forward"), rdescript="Visual Studio Code: Find Next"),
         "(Find | Jump [to]) previous <text>": R(Function(findNthToken, n=1, direction="reverse"), rdescript="Visual Studio Code: Find Previous"),
 
@@ -70,6 +72,11 @@ class VisualStudioCodeRule(MergeRule):
         "step into":                    R(Key("f11"), rdescript="Visual Studio Code:Step Into"),
         "step out [of]":                R(Key("s-f11"), rdescript="Visual Studio Code:Step Out"),
         "resume":                       R(Key("f5"), rdescript="Visual Studio Code:Resume"),
+
+        # UI Navigation
+        "explorer":                R(Key("cs-e"), rdescript="Visual Studio Code: Explorer"),
+
+        # 
                 }
     extras = [
               Dictation("text"),

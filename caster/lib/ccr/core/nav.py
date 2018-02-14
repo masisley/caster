@@ -73,6 +73,7 @@ class NavigationNon(MappingRule):
         
         # My edits #
         "(queue this | select this)":       R(Key("right, c-left, cs-right"), rdescript="Select this"),
+        "Stab [<n>]": R(Key("s-tab"), rdescript="Shift tab") * Repeat(extra="n"),
         # End my edits #
 
           }

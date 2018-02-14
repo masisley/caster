@@ -67,6 +67,9 @@ class Kusto(MergeRule):
     "equals":             R(Text(" == \"\"") + Key("left"), rdescript="Kusto: equals"),
     "contains":             R(Text(" contains \"\"") + Key("left"), rdescript="Kusto: contains"),
 
+    "[is] greater than":                R(Key("rangle"), rdescript="> Comparison"),
+    "[is] less than":                   R(Key("langle"), rdescript="< Comparison"),
+
 	  "ago":    					R(Text("ago()") + Key("left"), rdescript="Kusto: ago"),
     "count":    					R(Text("count()"), rdescript="Kusto: count"),
     "dee count":    					R(Text("dcount()"), rdescript="Kusto: dcount"),
