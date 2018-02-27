@@ -46,7 +46,7 @@ class VisualStudioCodeRule(MergeRule):
 
         # moving around a file
         "(go to | jump | jump to) line <n>": R(Key("c-g") + Text("%(n)d") + Key("enter"), rdescript="Visual Studio Code: Go to Line"),
-        "Go to definition": R(Key("f12"), rdescript="Visual Studio Code: Go to Definition"),
+        "[Go to] definition": R(Key("f12"), rdescript="Visual Studio Code: Go to Definition"),
         "Go to required definition": R(Key("c-f12:2, c-right:5, left/50, f12"), rdescript="Visual Studio Code: Go to Required Definition"),
         "Go to (top | first line)": R(Key("c-home"), rdescript="Visual Studio Code: Go to Top"),
         "Go to ( bottom | last line)": R(Key("c-end"), rdescript="Visual Studio Code: Go to Bottom"),
@@ -65,7 +65,6 @@ class VisualStudioCodeRule(MergeRule):
         "[toggle] full screen":         R(Key("f11"), rdescript="Visual Studio Code:Fullscreen"),        
         "[toggle] Zen mode":            R(Key("c-k/3, z")),
 
-
         # Debugging
         "[toggle] breakpoint":          R(Key("f9"), rdescript="Visual Studio Code:Breakpoint"),
         "step over [<n>]":              R(Key("f10/50") * Repeat(extra="n"), rdescript="Visual Studio Code:Step Over"),
@@ -76,6 +75,9 @@ class VisualStudioCodeRule(MergeRule):
         # UI Navigation
         "explorer":                R(Key("cs-e"), rdescript="Visual Studio Code: Explorer"),
 
+        # Editing
+        "clearly":                      R(Key("end, s-home, s-home, del, del"), rdescript="Visual Studio Code: clear line"),
+        "suggestion":                      R(Key("c-dot"), rdescript="Visual Studio Code: Apply suggestion"),
         # 
                 }
     extras = [

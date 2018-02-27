@@ -155,3 +155,4 @@ if settings.WSR:
     while True:
         pythoncom.PumpWaitingMessages()  # @UndefinedVariable
         time.sleep(.1)
+ 

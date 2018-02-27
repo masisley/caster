@@ -73,7 +73,10 @@ class NavigationNon(MappingRule):
         
         # My edits #
         "(queue this | select this)":       R(Key("right, c-left, cs-right"), rdescript="Select this"),
+        "(copy this)":       R(Key("right, c-left, cs-right, c-c"), rdescript="Copy this"),
         "Stab [<n>]": R(Key("s-tab"), rdescript="Shift tab") * Repeat(extra="n"),
+        "(soap | calm) [<n>]":                  R(Key("pgup"), rdescript="Page Up") * Repeat(extra="n"),
+        "(dope | peace) [<n>]":                  R(Key("pgdown"), rdescript="Page Down") * Repeat(extra="n"),        
         # End my edits #
 
           }

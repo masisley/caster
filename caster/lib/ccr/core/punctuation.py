@@ -55,7 +55,7 @@ class Punctuation(MergeRule):
         "race":                             R(Text("}"), rdescript="Right curly bracket"),
         "squirrel":                         R(Text("["), rdescript="Left square bracket"),
         "square":                         R(Text("]"), rdescript="Right square bracket"),
-          }
+        }
  
 
     extras = [

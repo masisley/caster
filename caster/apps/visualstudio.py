@@ -80,7 +80,7 @@ class VisualStudioRule(MergeRule):
         "shin page down [<n>]":         R(Key("s-pgdown"), rdescript="Visual Studio: Select down") * Repeat(extra="n"), 
         "shin page up [<n>]":           R(Key("s-pgup"), rdescript="Visual Studio: Select up") * Repeat(extra="n"),
         "stoosh this":                  R(Key("right, c-left, cs-right, c-c"), rdescript="Visual Studio: stoosh this"),
-        "clearly":                      R(Key("s-home, s-home, del"), rdescript="Visual Studio: stoosh this"),
+        "clearly":                      R(Key("end, s-home, s-home, del, del"), rdescript="Visual Studio: clear line"),
         # End my edits #
         }
     extras = [

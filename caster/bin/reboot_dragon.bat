@@ -1,0 +1,6 @@
+taskkill /IM natspeak.exe /f /s localhost
+taskkill /IM dgnuiasvr_x64.exe /f /s localhost
+taskkill /IM dnsspserver.exe /f /s localhost
+taskkill /IM dragonbar.exe /f /s localhost
+sleep 1
+start "" "C:\Program Files (x86)\Nuance\NaturallySpeaking14\Program\natspeak.exe"
