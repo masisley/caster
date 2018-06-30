@@ -31,8 +31,10 @@ class VisualStudioCodeRule(MergeRule):
         "Save and close": R(Key("c-s/10, c-w"), rdescript="Visual Studio Code: Save And Close File"),
        
         # Search
-        "(search | find in) [all] (files | codebase)": R(Key("cs-f"), rdescript="Visual Studio Code: Find in Codebase"),
-        "(search | find) [file]": R(Key("c-f"), rdescript="Visual Studio Code: Find in File"),
+        "(search | find in) [all] (files | codebase) [<text>]": R(Key("cs-f") + Text("%(text)s"), rdescript="Visual Studio Code: Find in Codebase"),
+        "(replace in) [all] (files | codebase) [<text>]": R(Key("cs-h, cs-h") + Text("%(text)s"), rdescript="Visual Studio Code: Replace in Codebase"),
+        "(search | find) [file] [<text>]": R(Key("c-f") + Text("%(text)s"), rdescript="Visual Studio Code: Find in File"),
+        "(replace in) [file]sk [<text>]": R(Key("c-h") + Text("%(text)s"), rdescript="Visual Studio Code: Replace in File"),
         "(Find | Jump [to]) next <text>": R(Function(findNthToken, n=1, direction="forward"), rdescript="Visual Studio Code: Find Next"),
         "(Find | Jump [to]) previous <text>": R(Function(findNthToken, n=1, direction="reverse"), rdescript="Visual Studio Code: Find Previous"),
 
@@ -44,7 +46,7 @@ class VisualStudioCodeRule(MergeRule):
 
         # moving around a file
         "(go to | jump | jump to) line <n>": R(Key("c-g") + Text("%(n)d") + Key("enter"), rdescript="Visual Studio Code: Go to Line"),
-        "Go to definition": R(Key("f12"), rdescript="Visual Studio Code: Go to Definition"),
+        "[Go to] definition": R(Key("f12"), rdescript="Visual Studio Code: Go to Definition"),
         "Go to required definition": R(Key("c-f12:2, c-right:5, left/50, f12"), rdescript="Visual Studio Code: Go to Required Definition"),
         "Go to (top | first line)": R(Key("c-home"), rdescript="Visual Studio Code: Go to Top"),
         "Go to ( bottom | last line)": R(Key("c-end"), rdescript="Visual Studio Code: Go to Bottom"),
@@ -63,13 +65,20 @@ class VisualStudioCodeRule(MergeRule):
         "[toggle] full screen":         R(Key("f11"), rdescript="Visual Studio Code:Fullscreen"),        
         "[toggle] Zen mode":            R(Key("c-k/3, z")),
 
-
         # Debugging
         "[toggle] breakpoint":          R(Key("f9"), rdescript="Visual Studio Code:Breakpoint"),
         "step over [<n>]":              R(Key("f10/50") * Repeat(extra="n"), rdescript="Visual Studio Code:Step Over"),
         "step into":                    R(Key("f11"), rdescript="Visual Studio Code:Step Into"),
         "step out [of]":                R(Key("s-f11"), rdescript="Visual Studio Code:Step Out"),
         "resume":                       R(Key("f5"), rdescript="Visual Studio Code:Resume"),
+
+        # UI Navigation
+        "explorer":                R(Key("cs-e"), rdescript="Visual Studio Code: Explorer"),
+
+        # Editing
+        "clearly":                      R(Key("end, s-home, s-home, del, del"), rdescript="Visual Studio Code: clear line"),
+        "suggestion":                      R(Key("c-dot"), rdescript="Visual Studio Code: Apply suggestion"),
+        # 
                 }
     extras = [
               Dictation("text"),

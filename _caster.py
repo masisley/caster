@@ -3,7 +3,7 @@
 main Caster module
 Created on Jun 29, 2014
 '''
-
+   
 import logging
 logging.basicConfig()
 
@@ -155,3 +155,4 @@ if settings.WSR:
     while True:
         pythoncom.PumpWaitingMessages()  # @UndefinedVariable
         time.sleep(.1)
+ 

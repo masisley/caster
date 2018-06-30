@@ -30,7 +30,7 @@ class GitBashRule(MergeRule):
         "initialize repository":       Text( "git init" )+Key("enter"),
         "add":              R(Key("g, i, t, space, a, d, d, space, dot, enter"), rdescript="GIT: Add All"),
         "status":           R(Key( "g, i, t, space, s, t, a, t, u, s, enter" ), rdescript="GIT: Status"),
-        "commit":           R(Key( "g, i, t, space, c, o, m, m, i, t, space, minus, a, m, space, apostrophe, apostrophe, left"), rdescript="GIT: Commit"),
+        "commit":           R(Key( "g, i, t, space, c, o, m, m, i, t, space, minus, a, m, space, quote, quote, left"), rdescript="GIT: Commit"),
         "bug fix commit <n>":    R(Mimic("commit")+Text("fixes #%(n)d ")+Key("backspace"), rdescript="GIT: Bug Fix Commit"),
         "reference commit <n>":  R(Mimic("commit")+Text("refs #%(n)d ")+Key("backspace"), rdescript="GIT: Reference Commit"),
         "checkout":         R(Text( "git checkout " ), rdescript="GIT: Check Out"),
@@ -80,12 +80,35 @@ class GitBashRule(MergeRule):
         "search recursive count": R(Text("grep -rinH \"PATTERN\" * | wc -l"), rdescript="GREP: Search Recursive Count"),
         "search recursive filetype": R(Text("find . -name \"*.java\" -exec grep -rinH \"PATTERN\" {} \\;"), rdescript="GREP: Search Recursive Filetype"),
         "to file":          R(Text(" > FILENAME"), rdescript="Bash: To File"),
+
+        # Begin My customizations #
+        "get":              Text( "git " ),
+        "open project":     R(Text("vsmsbuild sources.proj")+Key("enter"), rdescript="vsmsbuild"),
+        "force push":       R(Text( "git push -f" )+Key("enter"), rdescript="GIT: Force Push"),
+        "build":      R(Text( "build" )+Key("enter"), rdescript="Build: local"),
+        "build rec":        R(Text( "buildreq" )+Key("enter"), rdescript="Build: remote"),
+        "build signed":     R(Text( "buildreq -s" )+Key("enter"), rdescript="Build: remote"),
+        "NPM Start":     R(Text( "npm start" )+Key("enter"), rdescript="NPM: start"),
+
+        "open portal":      R(Key("cw-p"), rdescript="Conemu: Open Portal"),
+        "open RP":          R(Key("cw-r"), rdescript="Conemu: Open RP"),
+        "open RP user":     R(Key("cw-u"), rdescript="Conemu: Open RP User"),
+        "open Caster":      R(Key("cw-c"), rdescript="Conemu: Open Caster"),
+        "Next tab":      R(Key("w-tab"), rdescript="Conemu: Next tab"),
+
+        "checkout masisley":         R(Text( "git checkout masisley/" ), rdescript="GIT: Check Out"),
+        "checkout new":         R(Text( "git checkout -b masisley/" ), rdescript="GIT: Check Out"),
+        "(get push | push) Set up stream":R(Text( "git push --set-upstream origin masisley/" ), rdescript="GIT: Push"),
+        "get Rebase Master":              R(Text( "git rebase master" ), rdescript="GIT: Rebase master"),
+        "pull origin master":             R(Text( "git pull origin master" )+Key("enter"), rdescript="GIT: Pull"),
+        
+        "task kill":             R(Text( "taskkill /f /IM " ), rdescript="Taskkill"),
+        # End   My customizations #
         }
     extras = [
-              IntegerRefST("n", 1, 10000),
+              IntegerRefST("n", 1, 10),
              ]
     defaults ={"n": 0}
-
 
 #---------------------------------------------------------------------------
 
@@ -93,8 +116,9 @@ context = AppContext(executable="\\sh.exe")
 context2 = AppContext(executable="\\bash.exe")
 context3 = AppContext(executable="\\cmd.exe")
 context4 = AppContext(executable="\\mintty.exe")
+context5 = AppContext(executable="\\ConEmu64.exe")
 
-grammar = Grammar("MINGW32", context=(context | context2 | context3 | context4))
+grammar = Grammar("MINGW32", context=(context | context2 | context3 | context4 | context5))
 
 if settings.SETTINGS["apps"]["gitbash"]:
     if settings.SETTINGS["miscellaneous"]["rdp_mode"]:

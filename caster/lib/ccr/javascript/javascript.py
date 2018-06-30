@@ -1,3 +1,4 @@
+
 '''
 Created on Sep 2, 2015
 
@@ -80,11 +81,13 @@ class Javascript(MergeRule):
         "instance of":                  R(Text("instanceof "), rdescript="Javascript: Instance Of"),
         
         "var":                          R(Text("var "), rdescript="Javascript: Var"),
-        "const":                        R(Text("const"), rdescript=" JavaScript: Const"),
-        "Let":                          R(Text("let"), rdescript=" JavaScript: Let"),
+        "const":                        R(Text("const "), rdescript=" JavaScript: Const"),
+        "Let":                          R(Text("let "), rdescript=" JavaScript: Let"),
 
         "shell iffae":                  R(Text("else if ()") + Key("left"), rdescript="Javascript: Else If"),
-       
+        "triple equals":                R(Text("=== "), rdescript="Javascript: triple equals"),
+        "triple not equals":            R(Text("!== "), rdescript="Javascript: triple not equals"),
+        "string":                       R(Text("string "), rdescript="Javascript: string"),
           }
 
     extras = []

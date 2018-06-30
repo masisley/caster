@@ -22,7 +22,7 @@ def get_alphabet_choice(spec):
             "Novakeen": "n", 
             "oscar": "o", 
             "prime": "p", 
-            "Quebec": "q", 
+            "Quinn": "q", 
             "Romeo": "r", 
             "Sierra": "s", 
             "tango": "t", 

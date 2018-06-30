@@ -71,6 +71,14 @@ class NavigationNon(MappingRule):
         
         "elite translation <text>":         R(Function(alphanumeric.elite_text), rdescript="1337 Text"),
         
+        # My edits #
+        "(queue this | select this)":       R(Key("right, c-left, cs-right"), rdescript="Select this"),
+        "(copy this)":       R(Key("right, c-left, cs-right, c-c"), rdescript="Copy this"),
+        "Stab [<n>]": R(Key("s-tab"), rdescript="Shift tab") * Repeat(extra="n"),
+        "(soap | calm) [<n>]":                  R(Key("pgup"), rdescript="Page Up") * Repeat(extra="n"),
+        "(dope | peace) [<n>]":                  R(Key("pgdown"), rdescript="Page Down") * Repeat(extra="n"),        
+        # End my edits #
+
           }
 
     extras   = [
@@ -141,7 +149,11 @@ class Navigation(MergeRule):
     "(tell | tau) <semi>":          R(Function(navigation.next_line), rspec="tell dock", rdescript="Complete Line"), 
     "duple [<nnavi50>]":            R(Key("escape, home, s-end, c-c, end, enter, c-v"), rspec="duple", rdescript="Duplicate Line") * Repeat(extra="nnavi50"),
     "Kraken":                       R(Key("c-space"), rspec="Kraken", rdescript="Control Space"),
-         
+    
+    "shin dope [<nnavi50>]":         R(Key("s-pgdown"), rdescript="Select page down") * Repeat(extra="nnavi50"), 
+    "shin sope [<nnavi50>]":           R(Key("s-pgup"), rdescript="Select page up") * Repeat(extra="nnavi50"),
+
+
     # text formatting
     "set format (<capitalization> <spacing> | <capitalization> | <spacing>) (bow|bowel)":  R(Function(textformat.set_text_format), rdescript="Set Text Format"),
     "clear caster formatting":      R(Function(textformat.clear_text_format), rdescript="Clear Caster Formatting"),
