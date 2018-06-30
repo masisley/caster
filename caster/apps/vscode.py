@@ -42,6 +42,10 @@ class VisualStudioCodeRule(MergeRule):
             R(Key("cs-f"), rdescript="Visual Studio Code: Find in Codebase"),
         "(search | find) [file]":
             R(Key("c-f"), rdescript="Visual Studio Code: Find in File"),
+        "(replace in) [all] (files | codebase) [<text>]":
+            R(Key("cs-h, cs-h") + Text("%(text)s"), rdescript="Visual Studio Code: Replace in Codebase"),
+        "(replace in) [file] [<text>]":
+            R(Key("c-h") + Text("%(text)s"), rdescript="Visual Studio Code: Replace in File"),
         "(Find | Jump [to]) next <text>":
             R(Function(findNthToken, n=1, direction="forward"),
               rdescript="Visual Studio Code: Find Next"),
@@ -100,7 +104,6 @@ class VisualStudioCodeRule(MergeRule):
             R(Key("f11"), rdescript="Visual Studio Code:Fullscreen"),
         "[toggle] Zen mode":
             R(Key("c-k/3, z")),
-
         # Debugging
         "[toggle] breakpoint":
             R(Key("f9"), rdescript="Visual Studio Code:Breakpoint"),
@@ -112,6 +115,14 @@ class VisualStudioCodeRule(MergeRule):
             R(Key("s-f11"), rdescript="Visual Studio Code:Step Out"),
         "resume":
             R(Key("f5"), rdescript="Visual Studio Code:Resume"),
+
+        # UI Navigation
+        "explorer":                R(Key("cs-e"), rdescript="Visual Studio Code: Explorer"),
+
+        # Editing
+        "clearly":                      R(Key("end, s-home, s-home, del, del"), rdescript="Visual Studio Code: clear line"),
+        "suggestion":                      R(Key("c-dot"), rdescript="Visual Studio Code: Apply suggestion"),
+        # 
     }
     extras = [
         Dictation("text"),

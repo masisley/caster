@@ -105,6 +105,30 @@ class GitBashRule(MergeRule):
             R(Text("git cherry-pick --abort"), rdescript="GIT: Abort Cherry Pick"),
         "GUI | gooey":
             R(Text("git gui") + Key("enter"), rdescript="GIT: gui"),
+
+        # Begin My customizations #
+        "get":              Text( "git " ),
+        "open project":     R(Text("vsmsbuild sources.proj")+Key("enter"), rdescript="vsmsbuild"),
+        "force push":       R(Text( "git push -f" )+Key("enter"), rdescript="GIT: Force Push"),
+        "build":      R(Text( "build" )+Key("enter"), rdescript="Build: local"),
+        "build rec":        R(Text( "buildreq" )+Key("enter"), rdescript="Build: remote"),
+        "build signed":     R(Text( "buildreq -s" )+Key("enter"), rdescript="Build: remote"),
+        "NPM Start":     R(Text( "npm start" )+Key("enter"), rdescript="NPM: start"),
+
+        "open portal":      R(Key("cw-p"), rdescript="Conemu: Open Portal"),
+        "open RP":          R(Key("cw-r"), rdescript="Conemu: Open RP"),
+        "open RP user":     R(Key("cw-u"), rdescript="Conemu: Open RP User"),
+        "open Caster":      R(Key("cw-c"), rdescript="Conemu: Open Caster"),
+        "Next tab":      R(Key("w-tab"), rdescript="Conemu: Next tab"),
+
+        "checkout masisley":         R(Text( "git checkout masisley/" ), rdescript="GIT: Check Out"),
+        "checkout new":         R(Text( "git checkout -b masisley/" ), rdescript="GIT: Check Out"),
+        "(get push | push) Set up stream":R(Text( "git push --set-upstream origin masisley/" ), rdescript="GIT: Push"),
+        "get Rebase Master":              R(Text( "git rebase master" ), rdescript="GIT: Rebase master"),
+        "pull origin master":             R(Text( "git pull origin master" )+Key("enter"), rdescript="GIT: Pull"),
+        
+        "task kill":             R(Text( "taskkill /f /IM " ), rdescript="Taskkill"),
+        # End   My customizations #
         "blame":
             R(Text("git blame PATH -L FIRSTLINE,LASTLINE"), rdescript="GIT: Blame"),
         "gooey blame":
@@ -125,15 +149,15 @@ class GitBashRule(MergeRule):
     ]
     defaults = {"n": 0}
 
-
 #---------------------------------------------------------------------------
 
 context = AppContext(executable="\\sh.exe")
 context2 = AppContext(executable="\\bash.exe")
 context3 = AppContext(executable="\\cmd.exe")
 context4 = AppContext(executable="\\mintty.exe")
+context5 = AppContext(executable="\\ConEmu64.exe")
 
-grammar = Grammar("MINGW32", context=(context | context2 | context3 | context4))
+grammar = Grammar("MINGW32", context=(context | context2 | context3 | context4 | context5))
 
 if settings.SETTINGS["apps"]["gitbash"]:
     if settings.SETTINGS["miscellaneous"]["rdp_mode"]:

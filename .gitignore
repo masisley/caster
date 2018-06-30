@@ -22,7 +22,7 @@ complexity_report*
 /core/
 
 # Ignore User Rules and Filters
-/caster/user
+# /caster/user
 
 # Ignore Custom Sikuli Scripts
 /caster/asynch/sikuli/scripts
