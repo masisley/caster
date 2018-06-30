@@ -97,7 +97,7 @@ class GitBashRule(MergeRule):
         "Next tab":      R(Key("w-tab"), rdescript="Conemu: Next tab"),
 
         "checkout masisley":         R(Text( "git checkout masisley/" ), rdescript="GIT: Check Out"),
-        "checkout new masisley":         R(Text( "git checkout -b masisley/" ), rdescript="GIT: Check Out"),
+        "checkout new":         R(Text( "git checkout -b masisley/" ), rdescript="GIT: Check Out"),
         "(get push | push) Set up stream":R(Text( "git push --set-upstream origin masisley/" ), rdescript="GIT: Push"),
         "get Rebase Master":              R(Text( "git rebase master" ), rdescript="GIT: Rebase master"),
         "pull origin master":             R(Text( "git pull origin master" )+Key("enter"), rdescript="GIT: Pull"),
@@ -106,10 +106,9 @@ class GitBashRule(MergeRule):
         # End   My customizations #
         }
     extras = [
-              IntegerRefST("n", 1, 10000),
+              IntegerRefST("n", 1, 10),
              ]
     defaults ={"n": 0}
-
 
 #---------------------------------------------------------------------------
 

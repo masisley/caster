@@ -77,8 +77,6 @@ class VisualStudioRule(MergeRule):
         "rename":                       R(Key("c-r, c-r"), rdescript="Visual Studio: Rename"),
         "save all":                     R(Key("cs-s"), rdescript="Visual Studio: Save all"),
         "suggestion":                   R(Key("a-enter"), rdescript="Visual Studio: Alt enter"),
-        "shin page down [<n>]":         R(Key("s-pgdown"), rdescript="Visual Studio: Select down") * Repeat(extra="n"), 
-        "shin page up [<n>]":           R(Key("s-pgup"), rdescript="Visual Studio: Select up") * Repeat(extra="n"),
         "stoosh this":                  R(Key("right, c-left, cs-right, c-c"), rdescript="Visual Studio: stoosh this"),
         "clearly":                      R(Key("end, s-home, s-home, del, del"), rdescript="Visual Studio: clear line"),
         # End my edits #
