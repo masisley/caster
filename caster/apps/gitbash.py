@@ -115,19 +115,25 @@ class GitBashRule(MergeRule):
         "build signed":     R(Text( "buildreq -s" )+Key("enter"), rdescript="Build: remote"),
         "NPM Start":     R(Text( "npm start" )+Key("enter"), rdescript="NPM: start"),
 
-        "open portal":      R(Key("cw-p"), rdescript="Conemu: Open Portal"),
-        "open RP":          R(Key("cw-r"), rdescript="Conemu: Open RP"),
-        "open RP user":     R(Key("cw-u"), rdescript="Conemu: Open RP User"),
+        "open (Flow portal | portal)":      R(Key("cw-p"), rdescript="Conemu: Open Portal"),
+        "open (Flow RP | RP)":          R(Key("cw-r"), rdescript="Conemu: Open RP"),
+        "open (Flow RP | RP) user":     R(Key("cw-u"), rdescript="Conemu: Open RP User"),
         "open Caster":      R(Key("cw-c"), rdescript="Conemu: Open Caster"),
         "Next tab":      R(Key("w-tab"), rdescript="Conemu: Next tab"),
+        "Select tab [<n>]":      R(Key("w-tab"), rdescript="Conemu: Next tab"),
+        "Close tab":      R(Key("wa-delete"), rdescript="Conemu: Close tab"),
 
         "checkout masisley":         R(Text( "git checkout masisley/" ), rdescript="GIT: Check Out"),
         "checkout new":         R(Text( "git checkout -b masisley/" ), rdescript="GIT: Check Out"),
+        "checkout master":         R(Text( "git checkout master" ) + Key("enter"), rdescript="GIT: Check Out Master"),
         "(get push | push) Set up stream":R(Text( "git push --set-upstream origin masisley/" ), rdescript="GIT: Push"),
-        "get Rebase Master":              R(Text( "git rebase master" ), rdescript="GIT: Rebase master"),
+        "(get Rebase| rebase) Master":              R(Text( "git rebase master" ) + Key("enter"),  rdescript="GIT: Rebase master"),
         "pull origin master":             R(Text( "git pull origin master" )+Key("enter"), rdescript="GIT: Pull"),
         
         "task kill":             R(Text( "taskkill /f /IM " ), rdescript="Taskkill"),
+        "findster":             R(Text( "findstr /spin  *" )+Key("left")+Key("left"), rdescript="findstr"),
+        "CLS":             R(Text( "cls" )+Key("enter"), rdescript="Clear screen"),
+        "clear build":             R(Text( "cls" )+Key("enter")+Text("build")+Key("enter"), rdescript="Clear build"),
         # End   My customizations #
         "blame":
             R(Text("git blame PATH -L FIRSTLINE,LASTLINE"), rdescript="GIT: Blame"),
@@ -155,9 +161,12 @@ context = AppContext(executable="\\sh.exe")
 context2 = AppContext(executable="\\bash.exe")
 context3 = AppContext(executable="\\cmd.exe")
 context4 = AppContext(executable="\\mintty.exe")
-context5 = AppContext(executable="\\ConEmu64.exe")
+context5 = AppContext(executable="\\ConEmu.exe")
+context6 = AppContext(executable="\\ConEmu64.exe")
+context7 = AppContext(executable="\\ConEmuC64.exe")
+context8 = AppContext(executable="\\powershell.exe")
 
-grammar = Grammar("MINGW32", context=(context | context2 | context3 | context4 | context5))
+grammar = Grammar("MINGW32", context=(context | context2 | context3 | context4 | context5 | context6 | context7 | context8))
 
 if settings.SETTINGS["apps"]["gitbash"]:
     if settings.SETTINGS["miscellaneous"]["rdp_mode"]:

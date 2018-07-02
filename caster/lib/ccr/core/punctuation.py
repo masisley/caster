@@ -62,9 +62,11 @@ class Punctuation(MergeRule):
         "Lauren":                             R(Text("("), rdescript="Left paren"),
         "Roaren":                             R(Text(")"), rdescript="Right paren"),
         "lace":                             R(Text("{"), rdescript="Left curly bracket"),
-        "race":                             R(Text("}"), rdescript="Right curly bracket"),
+        "(race | curlier)":                             R(Text("}"), rdescript="Right curly bracket"),
         "squirrel":                         R(Text("["), rdescript="Left square bracket"),
         "square":                         R(Text("]"), rdescript="Right square bracket"),
+        "Lauren":                         R(Text("("), rdescript="Left parentheses"),
+        "Roaring":                         R(Text(")"), rdescript="Right parentheses"),
         "carrot":
             R(Text("^"), rdescript="Carat"),
         "(period | dot)":

@@ -80,6 +80,9 @@ class VisualStudioRule(MergeRule):
         "undo (checkout | pending changes)":
             R(Key("a-f, r, u"), rdescript="Visual Studio: Undo Pending Changes"),
         "[open] [go to] work item":
+            R(Key("a-m, g"), rdescript="Visual Studio: Open Work Item"),
+        "[add] [new] linked work item":
+            R(Key("sa-l"), rdescript="Visual Studio: New Linked Work Item"),
 
         # My edits #
 
@@ -105,9 +108,6 @@ class VisualStudioRule(MergeRule):
         "stoosh this":                  R(Key("right, c-left, cs-right, c-c"), rdescript="Visual Studio: stoosh this"),
         "clearly":                      R(Key("end, s-home, s-home, del, del"), rdescript="Visual Studio: clear line"),
         # End my edits #
-            R(Key("a-m, g"), rdescript="Visual Studio: Open Work Item"),
-        "[add] [new] linked work item":
-            R(Key("sa-l"), rdescript="Visual Studio: New Linked Work Item"),
     }
     extras = [
         Dictation("text"),

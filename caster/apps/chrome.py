@@ -64,6 +64,9 @@ class ChromeRule(MergeRule):
         "step out":                     R(Key("s-f11"), rdescript="Browser: Step Out"),
 
         "IRC identify":                 R(Text("/msg NickServ identify PASSWORD"), rdescript="IRC Chat Channel Identify"),
+
+        # Customizations #
+        "Duplicate Tab":                 R(Key("c-l, a-enter"), rdescript="Duplicate tab"),
         }
     extras = [
         Dictation("dict"),

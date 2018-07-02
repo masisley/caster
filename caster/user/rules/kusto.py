@@ -1,12 +1,14 @@
 from dragonfly import *
 
 from caster.lib import control
+from caster.lib import settings
+from caster.lib.dfplus.merge import gfilter
 from caster.lib.dfplus.merge.mergerule import MergeRule
 from caster.lib.dfplus.state.short import R
 from caster.lib.dfplus.additions import IntegerRefST
 
-class Kusto(MergeRule):
-  pronunciation = "kusto"
+class KustoRule(MergeRule):
+  pronunciation = "Kusto"
 
   mapping = {    
     "TIMESTAMP":            R(Text("TIMESTAMP"), rdescript="Kusto: TIMESTAMP"),
@@ -64,7 +66,7 @@ class Kusto(MergeRule):
     "summarize":                        R(Key("enter") + Text("| summarize "), rdescript="Kusto: Where"),
     "Render time chart":    					R(Key("enter") + Text("| render timechart"), rdescript="Kusto: Render timechart"),
 
-    "equals":             R(Text(" == \"\"") + Key("left"), rdescript="Kusto: equals"),
+    "kusto equals":             R(Text(" == \"\"") + Key("left"), rdescript="Kusto: equals"),
     "contains":             R(Text(" contains \"\"") + Key("left"), rdescript="Kusto: contains"),
 
     "[is] greater than":                R(Key("rangle"), rdescript="> Comparison"),
@@ -82,4 +84,15 @@ class Kusto(MergeRule):
   ]
   defaults ={"n": 1}
 
-control.nexus().merger.add_global_rule(Kusto())
+control.nexus().merger.add_global_rule(KustoRule())
+
+""" context = AppContext(executable="kusto")
+grammar = Grammar("Kusto", context=context)
+
+if settings.SETTINGS["miscellaneous"]["rdp_mode"]:
+    control.nexus().merger.add_global_rule(KustoRule())
+else:
+    rule = KustoRule(name="kusto")
+    gfilter.run_on(rule)
+    grammar.add_rule(rule)
+    grammar.load()  """

@@ -189,9 +189,13 @@ class Navigation(MergeRule):
 
     "(<mtn_dir> | <mtn_mode> [<mtn_dir>]) [(<nnavi500> | <extreme>)]": R(Function(textformat.master_text_nav), rdescript="Keyboard Text Navigation"),
 
-    "stoosh [<nnavi500>]":          R(Key("c-c")+Function(navigation.clipboard_to_file, nexus=_NEXUS), rspec="stoosh", rdescript="Copy"),
-    "cut [<nnavi500>]":             R(Key("c-x")+Function(navigation.clipboard_to_file, nexus=_NEXUS), rspec="cut", rdescript="Cut"),
-    "spark [<nnavi500>]":           R(Function(navigation.drop, nexus=_NEXUS), rspec="spark", rdescript="Paste"),
+    "sure stoosh [<nnavi500>]":          R(Key("c-c")+Function(navigation.clipboard_to_file, nexus=_NEXUS), rspec="stoosh", rdescript="Copy"),
+    "sure cut [<nnavi500>]":             R(Key("c-x")+Function(navigation.clipboard_to_file, nexus=_NEXUS), rspec="cut", rdescript="Cut"),
+    "sure spark [<nnavi500>]":           R(Function(navigation.drop, nexus=_NEXUS), rspec="spark", rdescript="Paste"),
+    
+    "stoosh":                      R(Key("c-c"), rdescript="Simple Copy"),
+    "cut":                         R(Key("c-x"), rdescript="Simple Cut"),
+    "spark":                       R(Key("c-v"), rdescript="Simple Paste"),
 
     "deli [<nnavi50>]":             R(Key("del/5"), rspec="deli", rdescript="Delete") * Repeat(extra="nnavi50"),
     "clear [<nnavi50>]":            R(Key("backspace/5:%(nnavi50)d"), rspec="clear", rdescript="Backspace"),
@@ -204,7 +208,7 @@ class Navigation(MergeRule):
     "Kraken":                       R(Key("c-space"), rspec="Kraken", rdescript="Control Space"),
 
     "shin dope [<nnavi50>]":         R(Key("s-pgdown"), rdescript="Select page down") * Repeat(extra="nnavi50"), 
-    "shin sope [<nnavi50>]":           R(Key("s-pgup"), rdescript="Select page up") * Repeat(extra="nnavi50"),
+    "shin soap [<nnavi50>]":           R(Key("s-pgup"), rdescript="Select page up") * Repeat(extra="nnavi50"),
 
 
     # text formatting
