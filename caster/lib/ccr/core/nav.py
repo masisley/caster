@@ -51,6 +51,8 @@ class NavigationNon(MappingRule):
             R(Function(navigation.left_down, nexus=_NEXUS), rdescript="Mouse: Left Down"),
         "bench":
             R(Function(navigation.left_up, nexus=_NEXUS), rdescript="Mouse: Left Up"),
+        "bench stoosh":
+            R(Function(navigation.left_up, nexus=_NEXUS) + Key("c-c"), rdescript="Mouse: Left Up"),
         "kick":
             R(Function(navigation.left_click, nexus=_NEXUS),
               rdescript="Mouse: Left Click"),
@@ -81,6 +83,9 @@ class NavigationNon(MappingRule):
             R(Mouse("left") + Mouse("left") + Function(navigation.drop, nexus=_NEXUS),
               rdescript="Highlight @ Mouse + Paste"),
         # My edits #
+        "shift click":
+            R(Key("shift:down") + Mouse("left") + Key("shift:up"),
+              rdescript="Mouse: Shift + Left Click"),
         "(queue this | select this)":       R(Key("right, c-left, cs-right"), rdescript="Select this"),
         "(copy this)":       R(Key("right, c-left, cs-right, c-c"), rdescript="Copy this"),
         "Stab [<n>]": R(Key("s-tab"), rdescript="Shift tab") * Repeat(extra="n"),
@@ -108,6 +113,10 @@ class NavigationNon(MappingRule):
             R(Key("sw-left"), rdescript="Monitor Left")*Repeat(extra="n"),
         "monitor (right | ross) [<n>]":
             R(Key("sw-right"), rdescript="Monitor Right")*Repeat(extra="n"),
+        "desktop (left | lease) [<n>]":
+            R(Key("cw-left"), rdescript="Desktop Left")*Repeat(extra="n"),
+        "desktop (right | ross) [<n>]":
+            R(Key("cw-right"), rdescript="Desktop Right")*Repeat(extra="n"),
         "(next | prior) window":
             R(Key("ca-tab, enter"), rdescript="Next Window"),
         "switch (window | windows)":

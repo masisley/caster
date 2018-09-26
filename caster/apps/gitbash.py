@@ -116,6 +116,7 @@ class GitBashRule(MergeRule):
         "NPM Start":     R(Text( "npm start" )+Key("enter"), rdescript="NPM: start"),
 
         "open (Flow portal | portal)":      R(Key("cw-p"), rdescript="Conemu: Open Portal"),
+        "open (Flow portal | portal) user":      R(Key("cw-i"), rdescript="Conemu: Open Portal User"),
         "open (Flow RP | RP)":          R(Key("cw-r"), rdescript="Conemu: Open RP"),
         "open (Flow RP | RP) user":     R(Key("cw-u"), rdescript="Conemu: Open RP User"),
         "open Caster":      R(Key("cw-c"), rdescript="Conemu: Open Caster"),
@@ -130,7 +131,7 @@ class GitBashRule(MergeRule):
         "(get Rebase| rebase) Master":              R(Text( "git rebase master" ) + Key("enter"),  rdescript="GIT: Rebase master"),
         "pull origin master":             R(Text( "git pull origin master" )+Key("enter"), rdescript="GIT: Pull"),
         
-        "task kill":             R(Text( "taskkill /f /IM " ), rdescript="Taskkill"),
+        "kill task":             R(Text( "taskkill /f /IM " ), rdescript="Taskkill"),
         "findster":             R(Text( "findstr /spin  *" )+Key("left")+Key("left"), rdescript="findstr"),
         "CLS":             R(Text( "cls" )+Key("enter"), rdescript="Clear screen"),
         "clear build":             R(Text( "cls" )+Key("enter")+Text("build")+Key("enter"), rdescript="Clear build"),

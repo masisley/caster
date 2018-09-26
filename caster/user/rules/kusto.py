@@ -64,18 +64,19 @@ class KustoRule(MergeRule):
 
     "where":                        R(Key("enter") + Text("| where "), rdescript="Kusto: Where"),
     "summarize":                        R(Key("enter") + Text("| summarize "), rdescript="Kusto: Where"),
+    "take":                        R(Key("enter") + Text("| take 10"), rdescript="Kusto: Where"),
     "Render time chart":    					R(Key("enter") + Text("| render timechart"), rdescript="Kusto: Render timechart"),
 
     "kusto equals":             R(Text(" == \"\"") + Key("left"), rdescript="Kusto: equals"),
     "contains":             R(Text(" contains \"\"") + Key("left"), rdescript="Kusto: contains"),
 
-    "[is] greater than":                R(Key("rangle"), rdescript="> Comparison"),
-    "[is] less than":                   R(Key("langle"), rdescript="< Comparison"),
+    #"[is] greater than":                R(Key("rangle"), rdescript="> Comparison"),
+    #"[is] less than":                   R(Key("langle"), rdescript="< Comparison"),
 
-	  "ago":    					R(Text("ago()") + Key("left"), rdescript="Kusto: ago"),
-    "count":    					R(Text("count()"), rdescript="Kusto: count"),
-    "dee count":    					R(Text("dcount()"), rdescript="Kusto: dcount"),
-    "bin":    					R(Text("bin(TIMESTAMP, 1d)"), rdescript="Kusto: bin"),
+	  "ago":    					R(Text(" ago()") + Key("left"), rdescript="Kusto: ago"),
+    "count":    					R(Text(" count()"), rdescript="Kusto: count"),
+    "dee count":    					R(Text(" dcount()"), rdescript="Kusto: dcount"),
+    "bin":    					R(Text(" bin(TIMESTAMP, 1d)"), rdescript="Kusto: bin"),
 
     "Run":    					R(Key("f5"), rdescript="Kusto: Run"),
   }
