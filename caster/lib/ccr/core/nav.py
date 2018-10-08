@@ -49,22 +49,12 @@ class NavigationNon(MappingRule):
             R(Key("s-f10"), rdescript="Context Menu"),
         "squat":
             R(Function(navigation.left_down, nexus=_NEXUS), rdescript="Mouse: Left Down"),
-        "bench":
-            R(Function(navigation.left_up, nexus=_NEXUS), rdescript="Mouse: Left Up"),
-        "bench stoosh":
-            R(Function(navigation.left_up, nexus=_NEXUS) + Key("c-c"), rdescript="Mouse: Left Up"),
-        "kick":
-            R(Function(navigation.left_click, nexus=_NEXUS),
-              rdescript="Mouse: Left Click"),
         "kick mid":
             R(Function(navigation.middle_click, nexus=_NEXUS),
               rdescript="Mouse: Middle Click"),
         "psychic":
             R(Function(navigation.right_click, nexus=_NEXUS),
               rdescript="Mouse: Right Click"),
-        "(kick double|double kick)":
-            R(Function(navigation.left_click, nexus=_NEXUS)*Repeat(2),
-              rdescript="Mouse: Double Click"),
         "shift right click":
             R(Key("shift:down") + Mouse("right") + Key("shift:up"),
               rdescript="Mouse: Shift + Right Click"),
@@ -219,6 +209,14 @@ class Navigation(MergeRule):
     "shin dope [<nnavi50>]":         R(Key("s-pgdown"), rdescript="Select page down") * Repeat(extra="nnavi50"), 
     "shin soap [<nnavi50>]":           R(Key("s-pgup"), rdescript="Select page up") * Repeat(extra="nnavi50"),
 
+    "kick":
+        R(Function(navigation.left_click, nexus=_NEXUS),
+            rdescript="Mouse: Left Click"),
+    "(kick double|double kick|slam)":
+        R(Function(navigation.left_click, nexus=_NEXUS)*Repeat(2),
+        rdescript="Mouse: Double Click"),
+    "bench":
+        R(Function(navigation.left_up, nexus=_NEXUS), rdescript="Mouse: Left Up"),
 
     # text formatting
     "set format (<capitalization> <spacing> | <capitalization> | <spacing>) (bow|bowel)":  R(Function(textformat.set_text_format), rdescript="Set Text Format"),
