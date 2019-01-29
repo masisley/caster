@@ -65,6 +65,10 @@ def master_format_text(capitalization, spacing, textnv):
     capitalization, spacing = normalize_text_format(capitalization, spacing)
     Text(get_formatted_text(capitalization, spacing, str(textnv))).execute()
 
+def custom_format_text(textnv, capitalization2, spacing2):
+    print("Cap", capitalization2)
+    print("Space: %d" % spacing2)
+    Text(get_formatted_text(capitalization2, spacing2, str(textnv))).execute()
 
 def partial_format_text(word_limit, textnv):
     global _CAPITALIZATION, _SPACING

@@ -102,6 +102,8 @@ class VisualStudioRule(MergeRule):
 
         
         # Actions #
+        "find everywhere":
+            R(Key("c-f"), rdescript="Find Everywhere"),
         "rename":                       R(Key("c-r, c-r"), rdescript="Visual Studio: Rename"),
         "save all":                     R(Key("cs-s"), rdescript="Visual Studio: Save all"),
         "suggestion":                   R(Key("a-enter"), rdescript="Visual Studio: Alt enter"),

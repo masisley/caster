@@ -188,13 +188,13 @@ class Navigation(MergeRule):
 
     "(<mtn_dir> | <mtn_mode> [<mtn_dir>]) [(<nnavi500> | <extreme>)]": R(Function(textformat.master_text_nav), rdescript="Keyboard Text Navigation"),
 
-    "sure stoosh [<nnavi500>]":          R(Key("c-c")+Function(navigation.clipboard_to_file, nexus=_NEXUS), rspec="stoosh", rdescript="Copy"),
-    "sure cut [<nnavi500>]":             R(Key("c-x")+Function(navigation.clipboard_to_file, nexus=_NEXUS), rspec="cut", rdescript="Cut"),
-    "sure spark [<nnavi500>]":           R(Function(navigation.drop, nexus=_NEXUS), rspec="spark", rdescript="Paste"),
+    "stoosh [<nnavi500>]":          R(Key("c-c")+Function(navigation.clipboard_to_file, nexus=_NEXUS), rspec="stoosh", rdescript="Copy"),
+    "cut [<nnavi500>]":             R(Key("c-x")+Function(navigation.clipboard_to_file, nexus=_NEXUS), rspec="cut", rdescript="Cut"),
+    "spark [<nnavi500>]":           R(Function(navigation.drop, nexus=_NEXUS), rspec="spark", rdescript="Paste"),
     
-    "stoosh":                      R(Key("c-c"), rdescript="Simple Copy"),
-    "cut":                         R(Key("c-x"), rdescript="Simple Cut"),
-    "spark":                       R(Key("c-v"), rdescript="Simple Paste"),
+    "sure stoosh":                  R(Key("c-c"), rdescript="Simple Copy"),
+    "sure cut":                     R(Key("c-x"), rdescript="Simple Cut"),
+    "sure spark":                   R(Key("c-v"), rdescript="Simple Paste"),
 
     "deli [<nnavi50>]":             R(Key("del/5"), rspec="deli", rdescript="Delete") * Repeat(extra="nnavi50"),
     "clear [<nnavi50>]":            R(Key("backspace/5:%(nnavi50)d"), rspec="clear", rdescript="Backspace"),
@@ -227,6 +227,16 @@ class Navigation(MergeRule):
     "<word_limit> format <textnv>": R(Function(textformat.partial_format_text), rdescript="Partial Text Format"),
     "hug <enclosure>":         R(Function(textformat.enclose_selected), rdescript="Enclose text "),
     "dredge":                       R(Key("a-tab"), rdescript="Alt-Tab"),
+
+    "tit <textnv>":  R(Function(textformat.custom_format_text, capitalization2=2, spacing2=0), rdescript="Text Format"),
+    "tin <textnv>": R(Function(textformat.custom_format_text, capitalization2=2, spacing2=1), rdescript="Text Format"),
+
+    "lit <textnv>": R(Function(textformat.custom_format_text, capitalization2=5, spacing2=0), rdescript="Text Format"),
+    "lin <textnv>": R(Function(textformat.custom_format_text, capitalization2=5, spacing2=1), rdescript="Text Format"),
+
+    "sit <textnv>": R(Function(textformat.custom_format_text, capitalization2=4, spacing2=0), rdescript="Text Format"),
+    "shout <textnv>": R(Function(textformat.custom_format_text, capitalization2=1, spacing2=1), rdescript="Text Format"),
+    "camel <textnv>": R(Function(textformat.custom_format_text, capitalization2=3, spacing2=1), rdescript="Text Format"),
 
     }
 

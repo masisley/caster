@@ -53,7 +53,6 @@ def send_input(n, action, nexus):
         win32api.SetCursorPos((x2, y))
         win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP, x2, y, 0, 0)
 
-
 class GridControlRule(MergeRule):
 
     mapping = {
