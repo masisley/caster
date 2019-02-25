@@ -1,3 +1,4 @@
+
 '''
 Created on Sep 2, 2015
 
@@ -111,6 +112,12 @@ class Javascript(MergeRule):
             R(Text("new "), rdescript="Javascript: New"),
         "continue":
             R(Text("continue"), rdescript="Javascript: Continue"),
+        "triple equals":
+            R(Text("=== "), rdescript="Javascript: triple equals"),
+        "triple not equals":
+            R(Text("!== "), rdescript="Javascript: triple not equals"),
+        "string":
+            R(Text("string "), rdescript="Javascript: string"),
         "this":
             R(Text("this"), rdescript="Javascript: This"),
         "try":

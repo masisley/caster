@@ -107,7 +107,7 @@ class GitBashRule(MergeRule):
             R(Text("git cherry-pick --abort"), rdescript="GIT: Abort Cherry Pick"),
         "(git|get) (GUI | gooey)":
             R(Text("git gui"), rdescript="GIT: gui"),
-        "(git|get) blame":
+	"blame":
             R(Text("git blame PATH -L FIRSTLINE,LASTLINE"), rdescript="GIT: Blame"),
         "(git|get) gooey blame":
             R(Text("git gui blame PATH"), rdescript="GIT: GUI Blame"),
@@ -121,12 +121,43 @@ class GitBashRule(MergeRule):
               rdescript="GREP: Search Recursive Filetype"),
         "to file":
             R(Text(" > FILENAME"), rdescript="Bash: To File"),
+            
+        # Begin My customizations #
+        "get":              Text( "git " ),
+        "open project":     R(Text("vsmsbuild sources.proj")+Key("enter"), rdescript="vsmsbuild"),
+        "force push":       R(Text( "git push -f" )+Key("enter"), rdescript="GIT: Force Push"),
+        "build":      R(Text( "build" )+Key("enter"), rdescript="Build: local"),
+        "build rec":        R(Text( "buildreq" )+Key("enter"), rdescript="Build: remote"),
+        "build signed":     R(Text( "buildreq -s" )+Key("enter"), rdescript="Build: remote"),
+        "NPM Start":     R(Text( "npm start" )+Key("enter"), rdescript="NPM: start"),
+
+        "open (Flow portal | portal)":      R(Key("cw-p"), rdescript="Conemu: Open Portal"),
+        "open (Flow portal | portal) user":      R(Key("cw-i"), rdescript="Conemu: Open Portal User"),
+        "open (Flow RP | RP)":          R(Key("cw-r"), rdescript="Conemu: Open RP"),
+        "open (Flow RP | RP) user":     R(Key("cw-u"), rdescript="Conemu: Open RP User"),
+        "open Caster":      R(Key("cw-c"), rdescript="Conemu: Open Caster"),
+        "Next tab":      R(Key("w-tab"), rdescript="Conemu: Next tab"),
+        "Select tab [<n>]":      R(Key("w-tab"), rdescript="Conemu: Next tab"),
+        "Close tab":      R(Key("wa-delete"), rdescript="Conemu: Close tab"),
+
+        "checkout masisley":         R(Text( "git checkout masisley/" ), rdescript="GIT: Check Out"),
+        "checkout new":         R(Text( "git checkout -b masisley/" ), rdescript="GIT: Check Out"),
+        "checkout master":         R(Text( "git checkout master" ) + Key("enter"), rdescript="GIT: Check Out Master"),
+        "(get push | push) Set up stream":R(Text( "git push --set-upstream origin masisley/" ), rdescript="GIT: Push"),
+        "(get Rebase| rebase) Master":              R(Text( "git rebase master" ) + Key("enter"),  rdescript="GIT: Rebase master"),
+        "pull origin master":             R(Text( "git pull origin master" )+Key("enter"), rdescript="GIT: Pull"),
+        
+        "kill task":             R(Text( "taskkill /f /IM " ), rdescript="Taskkill"),
+        "findster":             R(Text( "findstr /spin  *" )+Key("left")+Key("left"), rdescript="findstr"),
+        "CLS":             R(Text( "cls" )+Key("enter"), rdescript="Clear screen"),
+        "clear build":             R(Text( "cls" )+Key("enter")+Text("build")+Key("enter"), rdescript="Clear build"),
+        # End   My customizations #
+
     }
     extras = [
         IntegerRefST("n", 1, 10000),
     ]
     defaults = {"n": 0}
-
 
 #---------------------------------------------------------------------------
 
@@ -134,8 +165,12 @@ context = AppContext(executable="\\sh.exe")
 context2 = AppContext(executable="\\bash.exe")
 context3 = AppContext(executable="\\cmd.exe")
 context4 = AppContext(executable="\\mintty.exe")
+context5 = AppContext(executable="\\ConEmu.exe")
+context6 = AppContext(executable="\\ConEmu64.exe")
+context7 = AppContext(executable="\\ConEmuC64.exe")
+context8 = AppContext(executable="\\powershell.exe")
 
-grammar = Grammar("MINGW32", context=(context | context2 | context3 | context4))
+grammar = Grammar("MINGW32", context=(context | context2 | context3 | context4 | context5 | context6 | context7 | context8))
 
 if settings.SETTINGS["apps"]["gitbash"]:
     if settings.SETTINGS["miscellaneous"]["rdp_mode"]:

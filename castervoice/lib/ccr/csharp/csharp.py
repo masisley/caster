@@ -86,8 +86,6 @@ class CSharp(MergeRule):
         # C# specific
         "using":
             R(Text("using"), rdescript="C#: Using"),
-        "enum":
-            R(Text("enum TOKEN {}") + Key("left"), rdescript="C#: Enum"),
         "struct":
             R(Text("struct TOKEN {}") + Key("left"), rdescript="C#: Struct"),
         "interface":
@@ -108,10 +106,8 @@ class CSharp(MergeRule):
             R(Text("const"), rdescript="C#: Constant"),
         "array":
             R(Mimic("brackets"), rdescript="C#: Array"),
-        "list":
-            R(Text("List<>") + Key("left"), rdescript="C# List"),
         "var":
-            R(Text("var TOKEN = TOKEN;"), rdescript="C# variable"),
+            R(Text("var "), rdescript="C# variable"),
         "(lambda|goes to)":
             R(Text("=>"), rdescript="C#: lambda"),
         "new new":
@@ -128,6 +124,8 @@ class CSharp(MergeRule):
             R(Text("string "), rdescript="C#: String"),
         "ternary":
             R(Text("()?t:f") + (Key("left")*5), rdescript="C#: Ternary"),
+        "equals":
+            R(Text(" = "), rdescript="C#: equals"),
     }
 
     extras = []

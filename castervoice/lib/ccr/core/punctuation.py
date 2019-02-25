@@ -28,7 +28,7 @@ class Punctuation(MergeRule):
             R(Key("langle, equals"), rdescript="<= Comparison"),
         "[is] equal to":
             R(Key("equals,equals"), rdescript="Equality"),
-        "prekris":
+        "parens":
             R(Key("lparen, rparen, left"), rdescript="Parentheses"),
         "brax":
             R(Key("lbracket, rbracket, left"), rdescript="Square Brackets"),
@@ -56,6 +56,16 @@ class Punctuation(MergeRule):
             R(Text("?"), rdescript="Question Mark"),
         "comma":
             R(Text(","), rdescript="Comma"),
+        "lack":                             R(Text("<"), rdescript="Left bracket"),
+        "rack":                             R(Text(">"), rdescript="Right bracket"),
+        "Lauren":                             R(Text("("), rdescript="Left paren"),
+        "Roaren":                             R(Text(")"), rdescript="Right paren"),
+        "lace":                             R(Text("{"), rdescript="Left curly bracket"),
+        "(race | curlier)":                             R(Text("}"), rdescript="Right curly bracket"),
+        "squirrel":                         R(Text("["), rdescript="Left square bracket"),
+        "square":                         R(Text("]"), rdescript="Right square bracket"),
+        "Lauren":                         R(Text("("), rdescript="Left parentheses"),
+        "Roaring":                         R(Text(")"), rdescript="Right parentheses"),
         "carrot":
             R(Text("^"), rdescript="Carat"),
         "(period | dot)":

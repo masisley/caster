@@ -50,20 +50,12 @@ class NavigationNon(MappingRule):
             R(Key("s-f10"), rdescript="Context Menu"),
         "squat":
             R(Function(navigation.left_down, nexus=_NEXUS), rdescript="Mouse: Left Down"),
-        "bench":
-            R(Function(navigation.left_up, nexus=_NEXUS), rdescript="Mouse: Left Up"),
-        "kick":
-            R(Function(navigation.left_click, nexus=_NEXUS),
-              rdescript="Mouse: Left Click"),
         "kick mid":
             R(Function(navigation.middle_click, nexus=_NEXUS),
               rdescript="Mouse: Middle Click"),
         "psychic":
             R(Function(navigation.right_click, nexus=_NEXUS),
               rdescript="Mouse: Right Click"),
-        "(kick double|double kick)":
-            R(Function(navigation.left_click, nexus=_NEXUS)*Repeat(2),
-              rdescript="Mouse: Double Click"),
         "shift right click":
             R(Key("shift:down") + Mouse("right") + Key("shift:up"),
               rdescript="Mouse: Shift + Right Click"),
@@ -86,10 +78,17 @@ class NavigationNon(MappingRule):
                 capitalization=0,
                 spacing=0),
               rdescript="Highlight @ Mouse + Paste"),
-        "sure stoosh":
-            R(Key("c-c"), rdescript="Simple Copy"),
-        "sure cut":
-            R(Key("c-x"), rdescript="Simple Cut"),
+        # My edits #
+        "shift click":
+            R(Key("shift:down") + Mouse("left") + Key("shift:up"),
+              rdescript="Mouse: Shift + Left Click"),
+        "(queue this | select this)":       R(Key("right, c-left, cs-right"), rdescript="Select this"),
+        "(copy this)":       R(Key("right, c-left, cs-right, c-c"), rdescript="Copy this"),
+        "Stab [<n>]": R(Key("s-tab"), rdescript="Shift tab") * Repeat(extra="n"),
+        "(soap | calm) [<n>]":                  R(Key("pgup"), rdescript="Page Up") * Repeat(extra="n"),
+        "(dope | peace) [<n>]":                  R(Key("pgdown"), rdescript="Page Down") * Repeat(extra="n"),        
+        # End my edits #
+
         "sure spark":
             R(Key("c-v"), rdescript="Simple Paste"),
         "undo [<n>]":
@@ -110,6 +109,10 @@ class NavigationNon(MappingRule):
             R(Key("sw-left"), rdescript="Monitor Left")*Repeat(extra="n"),
         "monitor (right | ross) [<n>]":
             R(Key("sw-right"), rdescript="Monitor Right")*Repeat(extra="n"),
+        "desktop (left | lease) [<n>]":
+            R(Key("cw-left"), rdescript="Desktop Left")*Repeat(extra="n"),
+        "desktop (right | ross) [<n>]":
+            R(Key("cw-right"), rdescript="Desktop Right")*Repeat(extra="n"),
         "(next | prior) window":
             R(Key("ca-tab, enter"), rdescript="Next Window"),
         "switch (window | windows)":
@@ -199,7 +202,7 @@ class Navigation(MergeRule):
         "shift click":
             R(Key("shift:down") + Mouse("left") + Key("shift:up"),
               rdescript="Mouse: Shift Click"),
-
+    
         "stoosh [<nnavi500>]":
             R(Function(navigation.stoosh_keep_clipboard, nexus=_NEXUS), rspec="stoosh", rdescript="Copy"),
         "cut [<nnavi500>]":
@@ -226,6 +229,18 @@ class Navigation(MergeRule):
         "Kraken":
             R(Key("c-space"), rspec="Kraken", rdescript="Control Space"),
 
+    "shin dope [<nnavi50>]":         R(Key("s-pgdown"), rdescript="Select page down") * Repeat(extra="nnavi50"), 
+    "shin soap [<nnavi50>]":           R(Key("s-pgup"), rdescript="Select page up") * Repeat(extra="nnavi50"),
+
+    "kick":
+        R(Function(navigation.left_click, nexus=_NEXUS),
+            rdescript="Mouse: Left Click"),
+    "(kick double|double kick|slam)":
+        R(Function(navigation.left_click, nexus=_NEXUS)*Repeat(2),
+        rdescript="Mouse: Double Click"),
+    "bench":
+        R(Function(navigation.left_up, nexus=_NEXUS), rdescript="Mouse: Left Up"),
+
     # text formatting
         "set [<big>] format (<capitalization> <spacing> | <capitalization> | <spacing>) (bow|bowel)":
             R(Function(textformat.set_text_format), rdescript="Set Text Format"),
@@ -244,6 +259,16 @@ class Navigation(MergeRule):
             R(Function(text_utils.enclose_selected), rdescript="Enclose text "),
         "dredge":
             R(Key("a-tab"), rdescript="Alt-Tab"),
+
+    "tit <textnv>":  R(Function(textformat.custom_format_text, capitalization2=2, spacing2=0), rdescript="Text Format"),
+    "tin <textnv>": R(Function(textformat.custom_format_text, capitalization2=2, spacing2=1), rdescript="Text Format"),
+
+    "lit <textnv>": R(Function(textformat.custom_format_text, capitalization2=5, spacing2=0), rdescript="Text Format"),
+    "lin <textnv>": R(Function(textformat.custom_format_text, capitalization2=5, spacing2=1), rdescript="Text Format"),
+
+    "sit <textnv>": R(Function(textformat.custom_format_text, capitalization2=4, spacing2=0), rdescript="Text Format"),
+    "shout <textnv>": R(Function(textformat.custom_format_text, capitalization2=1, spacing2=1), rdescript="Text Format"),
+    "camel <textnv>": R(Function(textformat.custom_format_text, capitalization2=3, spacing2=1), rdescript="Text Format"),
 
     }
 

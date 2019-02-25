@@ -1,3 +1,4 @@
+
 #
 # This file is a command-module for Dragonfly.
 # (c) Copyright 2008 by Christo Butcher
@@ -59,11 +60,15 @@ class ChromeRule(MergeRule):
         "developer tools":              R(Key("f12"), rdescript="Browser: Developer Tools"),
         "view [page] source":           R(Key("c-u"), rdescript="Browser: View Page Source"),
         "resume":                       R(Key("f8"), rdescript="Browser: Resume"),
+        "(Enable | Disable) Breakpoints":                       R(Key("c-f8"), rdescript="Browser: Enable breakpoints"),
         "step over":                    R(Key("f10"), rdescript="Browser: Step Over"),
         "step into":                    R(Key("f11"), rdescript="Browser: Step Into"),
         "step out":                     R(Key("s-f11"), rdescript="Browser: Step Out"),
 
         "IRC identify":                 R(Text("/msg NickServ identify PASSWORD"), rdescript="IRC Chat Channel Identify"),
+
+        # Customizations #
+        "Duplicate Tab":                 R(Key("c-l, a-enter"), rdescript="Duplicate tab"),
         }
     extras = [
         Dictation("dict"),

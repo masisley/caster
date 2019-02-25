@@ -38,6 +38,11 @@ class NPPRule(MergeRule):
         # requires function list plug-in:
         "function list":
             R(Key("cas-l"), rdescript="Notepad++: Function List"),
+
+            # My updates
+            "new tab":                R(Key("c-n"), rdescript="Browser: New Tab"),
+            "close tab":                R(Key("c-w"), rdescript="Browser: Close Tab"),
+            "close all tabs":                R(Key("cs-w"), rdescript="Browser: Close All Tabs"),
     }
     extras = [
         Dictation("text"),

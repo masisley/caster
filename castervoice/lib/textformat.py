@@ -119,6 +119,10 @@ def clear_text_format(big):
 def peek_text_format(big):
     print("Text formatting: %s" % str(_choose_format(big)))
 
+def custom_format_text(textnv, capitalization2, spacing2):
+    print("Cap", capitalization2)
+    print("Space: %d" % spacing2)
+    Text(TextFormat.formatted_text(capitalization2, spacing2, str(textnv))).execute()
 
 def partial_format_text(big, word_limit, textnv):
     Text(
