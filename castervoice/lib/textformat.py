@@ -129,6 +129,11 @@ def partial_format_text(big, word_limit, textnv):
 def prior_text_format(big, textnv):
     Text(_choose_format(big).get_formatted_text(str(textnv))).execute()
 
+def custom_format_text(textnv, capitalization2, spacing2):
+    print("Cap", capitalization2)
+    print("Space: %d" % spacing2)
+    Text(TextFormat.formatted_text(capitalization2, spacing2, str(textnv))).execute()
+
 
 def master_format_text(capitalization, spacing, textnv):
     capitalization, spacing = TextFormat.normalize_text_format(capitalization, spacing)

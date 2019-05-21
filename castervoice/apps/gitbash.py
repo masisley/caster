@@ -123,7 +123,7 @@ class GitBashRule(MergeRule):
             R(Text(" > FILENAME"), rdescript="Bash: To File"),
     }
     extras = [
-        IntegerRefST("n", 1, 10000),
+        IntegerRefST("n", 1, 10),
     ]
     defaults = {"n": 0}
 
@@ -133,7 +133,11 @@ class GitBashRule(MergeRule):
 context = AppContext(executable="\\sh.exe") | \
           AppContext(executable="\\bash.exe") | \
           AppContext(executable="\\cmd.exe") | \
-          AppContext(executable="\\mintty.exe")
+          AppContext(executable="\\mintty.exe") | \
+          AppContext(executable="\\ConEmu.exe") | \
+          AppContext(executable="\\ConEmu64.exe") | \
+          AppContext(executable="\\ConEmuC64.exe") | \
+          AppContext(executable="\\powershell.exe")
 
 if settings.SETTINGS["apps"]["gitbash"]:
     if settings.SETTINGS["miscellaneous"]["rdp_mode"]:
