@@ -106,6 +106,9 @@ class OutlookRule(MappingRule):
         "previous view": R(Key("a-left")),
         "next view": R(Key("a-right")),
 
+        # zMy updates
+        "dismiss": R(Key("a-a")),
+
         # misc
         "[go] back": R(Key("a-left")),
     }
