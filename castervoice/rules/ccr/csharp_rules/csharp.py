@@ -74,15 +74,21 @@ class CSharp(MergeRule):
         SymbolSpecs.FALSE:
             R(Text("false")),
 
+        # My updates
+        "await":
+            R(Text("await ")),
+        "async":
+            R(Text("async ")),
+
         # C# specific
         "using":
             R(Text("using")),
-        "enum":
-            R(Text("enum TOKEN {}") + Key("left")),
-        "struct":
-            R(Text("struct TOKEN {}") + Key("left")),
-        "interface":
-            R(Text("interface TOKEN {}") + Key("left")),
+        #"enum":
+        #    R(Text("enum TOKEN {}") + Key("left")),
+        #"struct":
+        #    R(Text("struct TOKEN {}") + Key("left")),
+        #"interface":
+        #    R(Text("interface TOKEN {}") + Key("left")),
         "public":
             R(Text("public ")),
         "private":
@@ -99,10 +105,12 @@ class CSharp(MergeRule):
             R(Text("const")),
         "array":
             R(Mimic("brackets")),
-        "list":
-            R(Text("List<>") + Key("left")),
+        #"list":
+        #    R(Text("List<>") + Key("left")),
         "var":
-            R(Text("var TOKEN = TOKEN;")),
+            R(Text("var ")),
+        "void":
+            R(Text("void ")),
         "(lambda|goes to)":
             R(Text("=>")),
         "new new":
